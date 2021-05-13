@@ -12,7 +12,7 @@ export const ModalElement = ({ open, setOpen, children }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => setOpen(false)}>
-              Close
+              Cerrar
             </Button>
           </Modal.Footer>
         </Modal>
