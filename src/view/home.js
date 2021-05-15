@@ -1,37 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { List } from 'antd';
+import { useSelector } from 'react-redux'
 import { ItemUser } from '../components/ItemUser'
-import { GetUsers } from '../api/users'
 
 const ViewUser = () => {
-    const [Users, setUsers] = useState([])
-    const data = [
-        'Racing car sprays burning fuel into crowd.',
-        'Japanese princess to wed commoner.',
-        'Australian walks 100km after outback crash.',
-        'Man charged over missing wedding girl.',
-        'Los Angeles battles huge wildfires.',
-        'Los Angeles battles huge wildfires.',
-      ]
-
-      useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const users = await (await GetUsers()).data
-                setUsers(users)
-            } catch (error) {
-                console.log(error.message)
-            }
-        }
-
-        fetchUser()
-      },[])
-
+    const { users } = useSelector(state => state.UserReducer)
     return (
         <List
             header={<div>Lista de usuarios</div>}
             bordered
-            dataSource={Users}
+            dataSource={users}
             renderItem={item => <ItemUser userName={item.username} email={item.email} key={item.id}  />}
         />
     )
