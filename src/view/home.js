@@ -1,6 +1,7 @@
 import React from 'react'
 import { List } from 'antd';
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ItemUser } from '../components/ItemUser'
 
 const ViewUser = () => {
@@ -10,7 +11,11 @@ const ViewUser = () => {
             header={<div>Lista de usuarios</div>}
             bordered
             dataSource={users}
-            renderItem={item => <ItemUser userName={item.username} email={item.email} key={item.id}  />}
+            renderItem={item => (
+                <Link to={`/post/${item.id}`}>
+                    <ItemUser userName={item.username} email={item.email} key={item.id}  />
+                </Link>
+            )}
         />
     )
 }
