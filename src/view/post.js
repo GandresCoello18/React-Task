@@ -48,7 +48,7 @@ const PostView = () => {
                 <Row justify="space-around">
                     {Post.map(item => (
                         <Col>
-                            <CardPost title={item.title} body={item.body} key={item.id} />
+                            <CardPost title={item.title} body={item.body} id={item.id} key={item.id} />
                         </Col>
                     ))}
                 </Row>

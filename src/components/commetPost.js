@@ -1,10 +1,10 @@
 import React from 'react'
 import { Comment, Avatar } from 'antd'
 
-export const CommentPost = () => {
+export const CommentPost = ({ name, body, email }) => {
     return (
         <Comment
-            author='Han Solo'
+            author={name}
             avatar={
                 <Avatar
                     src="https://images.pexels.com/photos/3994569/pexels-photo-3994569.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -13,9 +13,7 @@ export const CommentPost = () => {
             }
             content={
                 <p>
-                We supply a series of design principles, practical patterns and high quality design
-                resources (Sketch and Axure), to help people create their product prototypes beautifully
-                and efficiently.
+                    {body} - <strong>{email}</strong>
                 </p>
             }
             />
